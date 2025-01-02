@@ -10,7 +10,7 @@ public class Person_class
 
     }
     public String getName() {
-    return name;
+    return name;q
     }
     public int getAge() {
         return age;
