@@ -15,13 +15,14 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-import static my_daily_book.forms.Main_form.projectID;
+import static my_daily_book.File_storage.projectID;
 import static my_daily_book.File_storage.notes;
 import static my_daily_book.File_storage.projects;
+import static my_daily_book.File_storage.noteID;
 
 public class ProjectDetails_form extends JFrame {
 
-    static int noteID = 0;
+
 
     JLabel lb_progectName;
     JPanel panelList, panelDetails, panel_buttons;
@@ -47,11 +48,9 @@ public class ProjectDetails_form extends JFrame {
             @Override
             public void mouseClicked(MouseEvent e) {
                 int index = listNotes.getSelectedIndex();
-                System.out.println(index);
                 for (Note note : notes) {
                     if (projectID == note.getProject_id() ){
                         noteID = ids.get(index);
-                        System.out.println(noteID);
                     }
                 }
             }
@@ -92,12 +91,16 @@ public class ProjectDetails_form extends JFrame {
         btnDeleteNote.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                dispose();
-                try {
-                    new DetleteNote_form();
-                } catch (IOException ex) {
-                    throw new RuntimeException(ex);
-                }
+               if (noteID ==  -1){
+                   new SelectNote_form();
+               }else {
+                   dispose();
+                   try {
+                       new DetleteNote_form();
+                   } catch (IOException ex) {
+                       throw new RuntimeException(ex);
+                   }
+               }
             }
         });
         panel_buttons.add(btnDeleteNote);
@@ -107,11 +110,15 @@ public class ProjectDetails_form extends JFrame {
         btnEditNote.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                dispose();
-                try {
-                    new EditNote_form();
-                } catch (IOException ex) {
-                    throw new RuntimeException(ex);
+                if(noteID == -1){
+                    new SelectNote_form();
+                }else {
+                    dispose();
+                    try {
+                        new EditNote_form();
+                    } catch (IOException ex) {
+                        throw new RuntimeException(ex);
+                    }
                 }
             }
         });

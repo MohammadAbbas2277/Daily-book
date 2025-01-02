@@ -9,14 +9,12 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
-import java.util.ArrayList;
-import java.util.List;
 
+import static my_daily_book.File_storage.noteID;
 import static my_daily_book.File_storage.notes;
-import static my_daily_book.forms.Main_form.projectID;
-import static my_daily_book.forms.ProjectDetails_form.noteID;
+import static my_daily_book.File_storage.projectID;
+
+
 
 public class EditNote_form extends Frame {
 

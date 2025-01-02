@@ -15,7 +15,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-import static my_daily_book.forms.Main_form.projectID;
+import static my_daily_book.File_storage.projectID;
 import static my_daily_book.File_storage.notes;
 
 public class AddNewNote_form extends JFrame {

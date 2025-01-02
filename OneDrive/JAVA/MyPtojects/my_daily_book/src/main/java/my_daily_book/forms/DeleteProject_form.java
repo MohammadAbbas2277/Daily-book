@@ -9,14 +9,11 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
+
 import java.util.ArrayList;
 import java.util.List;
 
-import static my_daily_book.forms.Main_form.projectID;
-
-import static my_daily_book.File_storage.projects;
-import static my_daily_book.File_storage.notes;
-
+import static my_daily_book.File_storage.*;
 
 
 public class DeleteProject_form extends JFrame {
@@ -100,6 +97,12 @@ public class DeleteProject_form extends JFrame {
                        throw new RuntimeException(ex);
                    }
                    dispose();
+                   try {
+                       new Main_form();
+                   } catch (IOException ex) {
+                       throw new RuntimeException(ex);
+                   }
+                   projectID =-1;
                } else if (response == JOptionPane.NO_OPTION) {
                    try {
                        new Main_form();
@@ -107,6 +110,7 @@ public class DeleteProject_form extends JFrame {
                        throw new RuntimeException(ex);
                    }
                    dispose();
+                   projectID =-1;
                }
 
             }
@@ -126,6 +130,7 @@ public class DeleteProject_form extends JFrame {
                 } catch (IOException ex) {
                     throw new RuntimeException(ex);
                 }
+                projectID = -1;
             }
         });
         btnPanel.add(btn_cancel);
@@ -149,19 +154,18 @@ public class DeleteProject_form extends JFrame {
     private void delete() throws IOException {
         for (Project p : projects) {
             if(projectID == p.getId()) {
-                projects.remove(p);
+                project1 = p;
             }
         }
-
+            projects.remove(project1);
+        List<Note>note1 = new ArrayList<>();
         for (Note note :notes ){
             if(projectID == note.getProject_id()){
-                notes.remove(note);
+                note1.add(note);
             }
         }
-
-
+        notes.removeAll(note1);
         fs.saveNotesFile(notes);
-
         fs.saveProjectsFille(projects);
     }
 

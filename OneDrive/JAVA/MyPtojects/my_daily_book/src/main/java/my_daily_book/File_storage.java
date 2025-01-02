@@ -9,11 +9,15 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class File_storage {
-    private String projects_file_name = "src/prjects.json";
+    private String projects_file_name = "src/projects.json";
     private String notes_file_name = "src/notes.json";
 
     public static List<Project> projects = new ArrayList<>();
     public static List <Note> notes = new ArrayList();
+    public static int projectID = -1;
+    public static int noteID = -1;
+    public static Project project1;
+    public static Note note1;
 
     Project[] project_gson;
     Note[] note_gson;

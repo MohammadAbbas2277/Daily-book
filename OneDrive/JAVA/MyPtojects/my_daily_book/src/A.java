@@ -1,1 +1,0 @@
-    List<Project> projects = new ArrayList<Project>();;

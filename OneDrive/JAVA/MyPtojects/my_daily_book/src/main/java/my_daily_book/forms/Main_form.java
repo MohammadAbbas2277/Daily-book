@@ -12,10 +12,11 @@ import java.io.IOException;
 
 import static my_daily_book.File_storage.projects;
 import static my_daily_book.File_storage.notes;
+import static my_daily_book.File_storage.projectID;
 
 
 public class Main_form extends JFrame {
-    static int projectID = -1;
+
     JPanel panet_buttons, panel_view_projects;
     JButton btn_new_project, btn_edit_project, btn_delete_project, btn_exit, btn_choose;
     int lb_Xposation = 15;
@@ -60,14 +61,19 @@ public class Main_form extends JFrame {
         btn_edit_project.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                dispose();
-                try {
-                    new EditProject_form();
-                } catch (IOException ex) {
-                    throw new RuntimeException(ex);
+                if (projectID == -1) {
+                    new SelectPoject_form();
+                } else {
+                    try {
+                        new EditProject_form();
+                    } catch (IOException ex) {
+                        throw new RuntimeException(ex);
+                    }
                 }
             }
         });
+
+
         panet_buttons.add(btn_edit_project);
         btn_delete_project = new JButton("Delete Project");
         btn_delete_project.setForeground(Color.BLACK);
@@ -77,14 +83,17 @@ public class Main_form extends JFrame {
         btn_delete_project.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-
-
-                dispose();
-                try {
-                    new DeleteProject_form();
-                } catch (IOException ex) {
-                    throw new RuntimeException(ex);
+                if (projectID == -1) {
+                    new SelectPoject_form();
+                } else {
+                    dispose();
+                    try {
+                        new DeleteProject_form();
+                    } catch (IOException ex) {
+                        throw new RuntimeException(ex);
+                    }
                 }
+
 
             }
         });
