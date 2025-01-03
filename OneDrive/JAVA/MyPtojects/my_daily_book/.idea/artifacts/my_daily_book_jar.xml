@@ -1,0 +1,9 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="my_daily_book:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/my_daily_book_jar</output-path>
+    <root id="archive" name="my_daily_book.jar">
+      <element id="module-output" name="my_daily_book" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/com/google/code/gson/gson/2.8.9/gson-2.8.9.jar" path-in-jar="/" />
+    </root>
+  </artifact>
+</component>

@@ -39,10 +39,12 @@ public class ProjectDetails_form extends JFrame {
         lb_progectName = new JLabel("Project Name");
         lb_progectName.setFont(new Font("", Font.BOLD, 20));
         lb_progectName.setBounds(5, 5, 200, 30);
+        panelList.setBackground(new Color(55, 236, 253, 242));
         panelList.add(lb_progectName);
         listNotes = new JList();
         listNotes.setBounds(2, 52, 195, 438);
         listNotes.setFont(new Font("", Font.BOLD, 20));
+        listNotes.setBackground(Color.yellow);
         addValuesTolist();
         listNotes.addMouseListener(new MouseAdapter() {
             @Override
@@ -69,10 +71,12 @@ public class ProjectDetails_form extends JFrame {
         panel_buttons = new JPanel();
         panel_buttons.setLayout(null);
         panel_buttons.setBounds(10, 500, 785, 100);
+        panel_buttons.setBackground(new Color(55, 236, 253, 242));
         add(panel_buttons);
         btnAddNote = new JButton("Add Note");
         btnAddNote.setFont(new Font("", Font.BOLD, 20));
         btnAddNote.setBounds(5, 25, 140, 50);
+        btnAddNote.setBackground(Color.yellow);
         btnAddNote.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -88,6 +92,7 @@ public class ProjectDetails_form extends JFrame {
         btnDeleteNote = new JButton("Delete Note");
         btnDeleteNote.setFont(new Font("", Font.BOLD, 20));
         btnDeleteNote.setBounds(150, 25, 140, 50);
+        btnDeleteNote.setBackground(Color.yellow);
         btnDeleteNote.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -107,6 +112,7 @@ public class ProjectDetails_form extends JFrame {
         btnEditNote = new JButton("Edit Note");
         btnEditNote.setFont(new Font("", Font.BOLD, 20));
         btnEditNote.setBounds(300, 25, 140, 50);
+        btnEditNote.setBackground(Color.yellow);
         btnEditNote.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -126,6 +132,7 @@ public class ProjectDetails_form extends JFrame {
         btnExit = new JButton("Exit");
         btnExit.setFont(new Font("", Font.BOLD, 20));
         btnExit.setBounds(450, 25, 100, 50);
+        btnExit.setBackground(new Color(253, 55, 137, 242));
         btnExit.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -141,6 +148,7 @@ public class ProjectDetails_form extends JFrame {
         btnPrint = new JButton("Print");
         btnPrint.setFont(new Font("", Font.BOLD, 20));
         btnPrint.setBounds(680, 25, 100, 50);
+        btnPrint.setBackground(Color.green);
         btnPrint.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -158,6 +166,7 @@ public class ProjectDetails_form extends JFrame {
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setSize(800, 600);
         setUndecorated(true);
+        setLocationRelativeTo(null);
         setLayout(null);
         setVisible(true);
     }

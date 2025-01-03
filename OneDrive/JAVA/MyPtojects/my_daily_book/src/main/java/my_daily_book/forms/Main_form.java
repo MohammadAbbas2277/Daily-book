@@ -63,12 +63,14 @@ public class Main_form extends JFrame {
             public void actionPerformed(ActionEvent e) {
                 if (projectID == -1) {
                     new SelectPoject_form();
+                    dispose();
                 } else {
                     try {
                         new EditProject_form();
                     } catch (IOException ex) {
                         throw new RuntimeException(ex);
                     }
+                    dispose();
                 }
             }
         });
@@ -86,9 +88,9 @@ public class Main_form extends JFrame {
                 if (projectID == -1) {
                     new SelectPoject_form();
                 } else {
-                    dispose();
                     try {
                         new DeleteProject_form();
+                        dispose();
                     } catch (IOException ex) {
                         throw new RuntimeException(ex);
                     }
@@ -101,7 +103,7 @@ public class Main_form extends JFrame {
         btn_exit = new JButton("Exit");
         btn_exit.setForeground(Color.BLACK);
         btn_exit.setFont(new Font("Tahoma", Font.BOLD, 14));
-        btn_exit.setBackground(Color.YELLOW);
+        btn_exit.setBackground(new Color(253, 55, 137, 242));
         btn_exit.setBounds(10, 190, 150, 50);
         btn_exit.addActionListener(new ActionListener() {
             @Override
@@ -140,6 +142,7 @@ public class Main_form extends JFrame {
         for (Project p : projects) {
             JButton b = new JButton(p.getName());
             b.setName(p.getName());
+            b.setBackground(Color.YELLOW);
             b.setBounds(lb_Xposation, lb_Yposation, 100, 40);
             lb_Xposation = +lb_Xposation + 106;
             if (lb_Xposation > 400) {

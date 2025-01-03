@@ -1,6 +1,7 @@
 package my_daily_book.forms;
 
 import my_daily_book.Project;
+import org.example.Main;
 
 import static my_daily_book.File_storage.projectID;
 import static my_daily_book.File_storage.projects;
@@ -27,6 +28,7 @@ public class SelectPoject_form extends JFrame {
     panel = new JPanel();
     panel.setLayout(null);
     panel.setBounds(5, 5, 290, 580);
+    panel.setBackground(new Color(55, 236, 253, 242));
     add(panel);
     lb_selectProject = new JLabel("Select Project");
     lb_selectProject.setBounds(0, 0, 200, 40);
@@ -41,17 +43,35 @@ public class SelectPoject_form extends JFrame {
     btn_selectProject = new JButton("Select Project");
     btn_selectProject.setBounds(0, 540, 180, 40);
     btn_selectProject.setFont(new Font("Tahoma", Font.PLAIN, 20));
+    btn_selectProject.setBackground(Color.YELLOW);
     btn_selectProject.addActionListener(new ActionListener() {
         @Override
         public void actionPerformed(ActionEvent e) {
-            projectID = ids.get(projectList.getSelectedIndex());
-            dispose();
+            if (projectList.getSelectedValue() == null) {
+                projectID =  -1;
+                try {
+                    new Main_form();
+                } catch (IOException ex) {
+                    throw new RuntimeException(ex);
+                }
+                dispose();
+            }else{
+                projectID = ids.get(projectList.getSelectedIndex());
+                try {
+                    new Main_form();
+                } catch (IOException ex) {
+                    throw new RuntimeException(ex);
+                }
+                dispose();
+            }
+
         }
     });
     panel.add(btn_selectProject);
     btn_cancel = new JButton("Cancel");
     btn_cancel.setBounds(185, 540, 100, 40);
     btn_cancel.setFont(new Font("Tahoma", Font.PLAIN, 20));
+    btn_cancel.setBackground(Color.YELLOW);
     btn_cancel.addActionListener(new ActionListener() {
         @Override
         public void actionPerformed(ActionEvent e) {

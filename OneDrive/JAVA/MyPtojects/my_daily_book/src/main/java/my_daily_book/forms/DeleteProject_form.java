@@ -105,6 +105,7 @@ public class DeleteProject_form extends JFrame {
                    projectID =-1;
                } else if (response == JOptionPane.NO_OPTION) {
                    try {
+                       hide();
                        new Main_form();
                    } catch (IOException ex) {
                        throw new RuntimeException(ex);
